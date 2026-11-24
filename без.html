@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Adileka!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #fff5f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Изменил на start, чтобы можно было скроллить */
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #5d4037;
+            text-align: center;
+            padding: 40px 20px;
+            overflow-x: hidden; /* Чтобы сердечки не создавали полосу прокрутки */
+        }
+
+        /* Контейнер для летающих сердечек */
+        #heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Чтобы сердечки не мешали нажимать на кнопки */
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff80ab;
+            font-size: 20px;
+            user-select: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Контент (делаем z-index выше, чтобы быть поверх сердечек) */
+        .content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #d81b60;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: heartBeat 3s infinite ease-in-out;
+        }
+
+         @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+          }
+
+        .cake-container {
+            font-family: monospace;
+            white-space: pre;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            color: #d81b60;
+            margin: 20px 0;
+            display: inline-block;
+            animation: sway 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes sway {
+            0% { transform: rotate(-1deg); }
+            100% { transform: rotate(1deg); }
+        }
+
+        .wish-text {
+           font-family: 'Dancing Script', cursive;
+            font-size: 1.6rem;
+            max-width: 600px;
+            line-height: 1.6;
+            color: #880e4f;
+            margin: 30px 0;
+            font-style: italic;
+
+        }
+
+        .photo-container {
+            margin: 30px auto;
+            border: 8px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            max-width: 300px;
+        }
+
+        .photo-container img {
+            width: 100%;
+            display: block;
+        }
+
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #d81b60;
+            margin-top: 40px;
+            animation: heartBeat 1.5s infinite;
+        }
+        
+           @keyframes heartBeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+          }
+
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .wish-text { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="heart-container"></div>
+
+<h1>𝐻𝒶𝓅𝓅𝓎 𝒷𝒾𝓇𝓉𝒽𝒹𝒶𝓎, Adileka💗</h1>
+
+    <div class="cake-container">
+      🕯️  🕯️  🕯️
+      [ 1 9 ]
+     |~~~~~~~~|
+     |~~~~~~~~~~~~|
+    |~~~~~~~~~~~~~~~~|
+    |________________|
+
+    </div>
+
+    <div class="wish-text">
+        Моя любимая девочка, поздравляю тебя с твоим прекрасным днём рождения! <br><br>
+        Желаю тебе всего самого наилучшего: счастья, здоровья, успехов во всех твоих начинаниях, любви, баракята и много-много денег. <br><br>
+        В этот раз пожелаю побольше видеться с нами, твоими подругами — скоро это придётся записывать в список желаний, ахах! <br><br>
+        Никогда не сдавайся! Даже когда не видишь выхода из ситуации — просто позвони мне и расскажи обо всём, мы найдём выход вместе. Мы видели, как рос каждый из нас, и ни разу не отступили назад. <br><br>
+        Иметь место, в которое всегда можно вернуться — это радость. Я хочу, чтобы наша дружба была таким местом для тебя. <br><br>
+        Пусть все твои цели будут достигнуты, а мечты — исполнены!
+    </div>
+
+    <div class="photo-container">
+        <img src="m.jpg" alt="Adileka ❤️">
+    </div>
+
+    <h2>I love you, my bro💗</h2>
+</div>
+
+<script>
+    function createHeart() {
+        const container = document.getElementById('heart-container');
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+
+        // Выбираем случайное сердечко или эмодзи
+        const hearts = ['❤️', '💖', '💗', '💕', '🌸'];
+        heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+        // Случайная позиция по горизонтали
+        heart.style.left = Math.random() * 100 + 'vw';
+
+        // Случайный размер
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+
+        // Случайная скорость падения
+        const duration = Math.random() * 3 + 4; // от 4 до 7 секунд
+        heart.style.animationDuration = duration + 's';
+
+        // Прозрачность
+        heart.style.opacity = Math.random() * 0.5 + 0.5;
+
+        container.appendChild(heart);
+
+        // Удаляем сердечко после завершения анимации, чтобы не тормозило
+        setTimeout(() => {
+            heart.remove();
+        }, duration * 1000);
+    }
+
+    // Создаем сердечко каждые 300 миллисекунд
+    setInterval(createHeart, 300);
+</script>
+
+
